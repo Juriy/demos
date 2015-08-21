@@ -1,0 +1,23 @@
+{
+  "name": "modules",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Juriy/es6-skeleton",
+  "authors": [
+    "Juriy Bura <juriy.bura@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vnd",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "es6-module-loader": "~0.16.6",
+    "requirejs": "~2.1.17",
+    "traceur-runtime": "~0.0.89",
+    "system.js": "~0.16.11"
+  }
+}

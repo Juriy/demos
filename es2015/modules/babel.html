@@ -1,0 +1,20 @@
+<html>
+  <head>
+  </head>
+  <body>
+
+  	<!-- <script src="vnd/requirejs/require.js"></script> -->
+
+  	<script src="vnd/es6-module-loader/dist/es6-module-loader.js"></script>
+  	<script src="vnd/system.js/dist/system.js"></script>
+	<script>
+	  // Identical to writing System.baseURL = ...
+	  System.config({
+	    // set all requires to "lib" for library code
+	    baseURL: '/target/babel'
+	  });
+
+	  System.import('main');
+	</script>
+  </body>
+</html>

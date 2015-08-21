@@ -1,0 +1,17 @@
+{
+  "name": "babel",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Juriy/es6-skeleton",
+  "authors": [
+    "Juriy Bura <juriy.bura@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vnd",
+    "test",
+    "tests"
+  ]
+}

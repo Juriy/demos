@@ -1,0 +1,20 @@
+{
+  "name": "traceur-demo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Juriy/es6-skeleton",
+  "authors": [
+    "Juriy Bura <juriy.bura@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vnd",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "traceur-runtime": "~0.0.89"
+  }
+}
