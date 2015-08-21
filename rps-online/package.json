@@ -1,0 +1,11 @@
+{
+  "name": "rps-online",
+  "version": "1.0.0",
+  "description": "Rock Paper Scissors game demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Juriy Bura <juriy.bura@gmail.com>",
+  "license": "ISC"
+}
