@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf=8">
+		<title>Tests</title>
+		
+		<link rel="stylesheet" href="../vnd/jasmine/lib/jasmine-core/jasmine.css">
+	</head>
+	<body>
+		<script src="../vnd/jasmine/lib/jasmine-core/jasmine.js"></script>
+		<script src="../vnd/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+		<script src="../vnd/jasmine/lib/jasmine-core/boot.js"></script>
+
+		<script src="../vnd/jquery/dist/jquery.js"></script>
+		<script src="../vnd/angular/angular.js"></script>
+		<script src="../vnd/angular-route/angular-route.js"></script>
+		<script src="../vnd/angular-mocks/angular-mocks.js"></script>
+
+		<!-- Application -->
+		<script src="../js/app.js"></script>
+
+		<!-- Controllers -->
+		<script src="../js/controllers/BooksController.js"></script>
+		<script src="../js/controllers/BookDetailsController.js"></script>
+
+		<!-- Services -->
+		<script src="../js/services/BookService.js"></script>
+		
+		<!-- Filters -->
+		<script src="../js/filters/LimitBy.js"></script>
+		<script src="../js/filters/TrimHtml.js"></script>
+
+		<!-- Tests -->
+		<script src="SampleTest.js"></script>
+		<script src="filters/LimitBySpec.js"></script>
+		<script src="filters/TrimHtmlSpec.js"></script>
+
+		<script src="controllers/BookDetailsControllerSpec.js"></script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<ul class="book-list">
+	<li ng-repeat="book in books">
+		<div class="media">
+			<a class="media-left" ng-href="#/books/{{book.id}}">
+				<img ng-src="{{book.images.medium}}" alt="cover">
+			</a>
+			<div class="media-body">
+				<h3 class="media-heading book-title">
+					<a ng-href="#/books/{{book.id}}">{{book.title}}</a>
+				</h3>
+				<h5>by {{book.author}}</h5>
+				{{book.description | trimHtml | limitBy:150}} ... 
+				<div>${{book.price.amount}}</div>
+			</div>
+		</div>
+	</li>
+</ul>
+
+<nav>
+	<ul class="pager">
+		<li><a href="#">Previous</a></li>
+		<li><a href="#">Next</a></li>
+	</ul>
+</nav>
