@@ -1,0 +1,33 @@
+{
+  "name": "rest-blog",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Juriy/rest-blog",
+  "authors": [
+    "Juriy Bura <juriy.bura@gmail.com>"
+  ],
+  "description": "A sample rest-blog app for trainings",
+  "main": "main.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "Angular.js",
+    "Node.js",
+    "JavaScript",
+    "REST"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "client/vnd",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1"
+  },
+  "devDependencies": {
+    "jasmine": "~2.1.3"
+  }
+}
