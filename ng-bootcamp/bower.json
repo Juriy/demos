@@ -1,0 +1,23 @@
+{
+  "name": "ng-bootcamp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Juriy/ng-bootcamp",
+  "authors": [
+    "Juriy Bura <juriy.bura@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vnd",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.8",
+    "bootstrap": "~3.3.1",
+    "jquery": "~2.1.3",
+    "angular-route": "~1.3.8"
+  }
+}
