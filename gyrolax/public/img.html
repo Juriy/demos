@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Gyrolax demo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0.5, maximum-scale=0.5">
+        <style>
+            *, html, body, div {
+                margin: 0;
+                padding: 0;
+                max-height: 100%;
+                overflow: hidden;
+            }
+
+            .holder {
+                overflow: hidden;
+                max-width: 2048px;
+            }
+
+            
+            /*Background*/
+            #layer1{
+                z-index:0;
+                position: absolute;
+            }
+
+            /*Depeche DNA*/
+            #layer6{
+                position: absolute;
+                top: 0;
+                z-index:1;
+            }
+
+            /*People*/
+            #layer2{
+                position: absolute;
+                z-index:2;
+                bottom: 0;
+                left: -200px;
+                
+            }
+                #layer2>img{
+                    /*width: 100%;*/
+                }
+
+
+
+
+            /*Concert date*/
+            #layer3{
+                position: absolute;
+                z-index:3;
+                width:600px;
+                top: 500px;
+                left: 400px;
+            }
+                #layer3>img{
+                    width:600px;
+                }
+
+            /*Depeche player*/
+            #layer4{
+                z-index: 4;
+                position: absolute;
+                bottom: 0;
+                left:30px
+            }
+                #layer4>img{
+                    width:400px;
+                }
+            /*Depeche mode in Kyiv*/
+            #layer5{
+                z-index:5;
+                position: absolute;
+                top: 100px;
+                left:430px;
+            }
+                #layer5>img{
+                    width:500px;
+
+                }
+
+
+
+            /* DEBUG */
+            .debug {
+                position: absolute;
+                background: darkgrey;
+                font-size: 24px;
+                color: white;
+                width: 400px;
+                height: 100px;
+                top: 0;
+                z-index:6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="holder">
+            <div class="bg" id="layer6"><img src="img/dm_0005_6.png" /></div>
+            <div class="bg" id="layer5"><img src="img/dm_0002_4.png" /></div>
+             <div class="bg" id="layer4"><img src="img/dm_0000_1.png" /></div>
+             <div class="bg" id="layer3"><img src="img/dm_0001_5.png" /></div>
+            <div class="bg" id="layer2"><img src="img/dm_0003_2.png" /></div>
+            <div class="bg" id="layer1"><img src="img/dm_0006_7.jpg" /></div>
+            <div class="debug">
+                <p>Alpha: <span id="gyro-alpha"></span></p>
+                <p>Beta: <span id="gyro-beta"></span></p>
+                <p>Gamma: <span id="gyro-gamma"></span></p>
+            </div>
+        </div>
+
+        <script src="js/gyrolax.min.js"></script>
+
+
+        <script>
+            var oldAlpha = null;
+            var x = 0;
+
+            var tracker = new Tracker();
+            var inputHandler = new InputHandler(document.body);
+
+            //tracker.on("rotate", updateUI);
+            inputHandler.on("move", updateTouch);
+
+            var coefficients = [
+                1, 4.5, 0, 0, 0, 1.5
+            ];
+
+            var layers = [
+                document.getElementById("layer1"),
+                document.getElementById("layer2"),
+                document.getElementById("layer3"),
+                document.getElementById("layer4"),
+                document.getElementById("layer5"),
+                document.getElementById("layer6")
+            ];
+
+            var positions = [-100, -500, 0, 0, 0, -300];
+
+
+
+            document.getElementById("gyro-alpha").innerHTML = positions.join(":");
+
+            function animate() {
+
+                var e = tracker.getOrientation();
+                if (oldAlpha === null) {
+                    oldAlpha = e.alpha;
+                } else {
+                    var deltaAlpha = oldAlpha - e.alpha;
+                    oldAlpha = e.alpha;
+
+                    if (Math.abs(deltaAlpha) > 200) {
+                        if (deltaAlpha > 0) {
+                            deltaAlpha -= 360;
+                        } else {
+                            deltaAlpha += 360;
+                        }
+                    }
+
+                    updateLayers(deltaAlpha);
+                }
+
+/*                document.getElementById("gyro-alpha").innerHTML = Math.round(e.alpha);
+                document.getElementById("gyro-beta").innerHTML = Math.round(e.beta);
+                document.getElementById("gyro-gamma").innerHTML = Math.round(e.gamma);
+*/
+
+                requestAnimationFrame(animate);
+            }
+
+            function updateLayers(deltaAlpha) {
+                for (var i = 0; i < layers.length; i++) {
+                    var layer = layers[i];
+                    positions[i] += deltaAlpha*coefficients[i];
+                    layer.style.left = Math.round(positions[i]) + "px";
+                }
+            }
+
+            animate();
+
+            function updateTouch(e) {
+
+                x += e.deltaX;
+
+                var el = document.getElementById("layer2");
+                el.style.left = (x*5) + "px";
+            }
+        </script>
+    </body>
+</html>

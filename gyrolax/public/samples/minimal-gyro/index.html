@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Minimal gyroscope demo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+    </head>
+    <body>
+        <div>
+            <p>Alpha: <span id="gyro-alpha"></span></p>
+            <p>Beta: <span id="gyro-beta"></span></p>
+            <p>Gamma: <span id="gyro-gamma"></span></p>
+        </div>
+        <script src="../../js/gyrolax.min.js"></script>
+
+        <script>
+            var tracker = new Tracker();
+            tracker.on("rotate", updateUI);
+
+            function updateUI(e) {
+                document.getElementById("gyro-alpha").innerHTML = Math.round(e.alpha);
+                document.getElementById("gyro-beta").innerHTML = Math.round(e.beta);
+                document.getElementById("gyro-gamma").innerHTML = Math.round(e.gamma);
+            }
+        </script>
+    </body>
+</html>
