@@ -8,7 +8,26 @@ let app = express();
 let server = http.createServer(app);
 let io = socketio(server);
 
-io.on('connection', (sock) => sock.emit('msg', 'Hello!'));
+let waitingPlayer;
+
+io.on('connection', onConnection);
 
 app.use(express.static(__dirname + '/client'));
 server.listen(8080, () => console.log('Ready to work!'));
+
+function onConnection(sock) {
+    sock.emit('msg', 'Hello!');
+    sock.on('msg', (txt) => io.emit('msg', txt));
+
+    if (waitingPlayer) {
+        notifyMatchStarts(waitingPlayer, sock);
+        waitingPlayer = null;
+    } else {
+        waitingPlayer = sock;
+        sock.emit('msg', 'You are waiting for a second player');
+    }
+}
+
+function notifyMatchStarts(sockA, sockB) {
+    [sockA, sockB].forEach((sock) => sock.emit('msg', 'Match starts'));
+}

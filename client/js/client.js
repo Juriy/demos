@@ -8,3 +8,12 @@ function onMessage(text) {
     el.innerHTML = text;
     list.appendChild(el);
 }
+
+var form = document.getElementById('chat-form');
+form.addEventListener('submit', function(e) {
+    var input = document.getElementById('chat-input');
+    var value = input.value;
+    input.value = '';
+    sock.emit('msg', value);
+    e.preventDefault();
+});
