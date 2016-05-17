@@ -1,0 +1,43 @@
+{
+  "name": "webpack-babel-eslint-seed",
+  "version": "1.0.0",
+  "description": "Humbly based on https://github.com/wesbos/Learn-Redux-Starter-Files",
+  "scripts": {
+    "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build": "npm run clean && npm run build:webpack",
+    "test": "NODE_ENV=production mocha './tests/**/*.spec.js' --compilers js:babel-core/register",
+    "clean": "rimraf dist",
+    "start": "node devServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juriy/demos.git"
+  },
+  "author": "Wes Bos",
+  "license": "MIT",
+  "homepage": "https://github.com/wesbos/Learn-Redux",
+  "dependencies": {
+    "babel-core": "^6.7.7",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-object-rest-spread": "^6.6.5",
+    "babel-plugin-transform-react-display-name": "^6.5.0",
+    "babel-polyfill": "^6.7.4",
+    "babel-preset-es2015": "^6.6.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.9.0",
+    "eslint-plugin-babel": "^3.2.0",
+    "express": "^4.13.4",
+    "rimraf": "^2.5.2",
+    "style-loader": "^0.13.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.0.0",
+    "webpack": "^1.13.0",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0"
+  },
+  "devDependencies": {
+    "expect": "^1.18.0",
+    "mocha": "^2.4.5"
+  }
+}
